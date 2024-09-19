@@ -1,0 +1,9 @@
+# Exclude config file
+/backend/config/database.go
+
+# Node modules for frontend
+/frontend/node_modules/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
