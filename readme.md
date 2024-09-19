@@ -122,20 +122,12 @@ Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta 
     -   **Method:** `POST`
     -   **Body:**
 
-        json
-
-        Copy code
-
         `{
           "username": "string",
           "password": "string"
         }`
 
     -   **Response:**
-
-        json
-
-        Copy code
 
         `{
           "message": "User registered successfully"
@@ -147,20 +139,12 @@ Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta 
     -   **Method:** `POST`
     -   **Body:**
 
-        json
-
-        Copy code
-
         `{
           "username": "string",
           "password": "string"
         }`
 
     -   **Response:**
-
-        json
-
-        Copy code
 
         `{
           "token": "jwt_token"
@@ -173,11 +157,7 @@ Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta 
     -   **URL:** `/products`
     -   **Method:** `GET`
     -   **Response:**
-
-        json
-
-        Copy code
-
+    
         `[
           {
             "id": "integer",
@@ -194,10 +174,6 @@ Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta 
     -   **Method:** `POST`
     -   **Body:**
 
-        json
-
-        Copy code
-
         `{
           "name": "string",
           "description": "string",
@@ -206,10 +182,6 @@ Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta 
         }`
 
     -   **Response:**
-
-        json
-
-        Copy code
 
         `{
           "message": "Product created successfully"
