@@ -32,6 +32,7 @@ The AI-Powered E-commerce Platform is a full-stack application designed to provi
 
 ## Database Setup
 ![Directory Structure](/DirectoryStructure.png)
+Notes : This does not include the test folder or else the structure would be too complex to be displayed in one picture.
 
 ### ERD
 
