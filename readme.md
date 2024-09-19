@@ -4,6 +4,10 @@
 
 The AI-Powered E-commerce Platform is a full-stack application designed to provide users with a seamless online shopping experience. The platform leverages AI to deliver personalized product recommendations based on user behavior and preferences. This project includes both a backend API and a frontend user interface.
 
+**Background**: The e-commerce industry has seen a significant transformation with the integration of AI technologies, providing personalized shopping experiences. This capstone project aims to develop an AI-powered e-commerce platform that enhances user experiences through personalized product recommendations.
+
+**Purpose**: The purpose of this project is to create a fully functional e-commerce platform where users can browse products, add items to their cart, and make purchases. The AI integration will offer personalized product recommendations based on user interactions and preferences, thereby improving the overall shopping experience.
+
 ## Features
 
 - **User Authentication & Authorization**
@@ -28,9 +32,6 @@ The AI-Powered E-commerce Platform is a full-stack application designed to provi
 - **AI**: Integrated recommendation engine (custom logic)
 
 ## Project Structure
-
-
-## Database Setup
 ![Directory Structure](/DirectoryStructure.png)
 Notes : This does not include the test folder or else the structure would be too complex to be displayed in one picture.
 
@@ -108,29 +109,175 @@ The Entity-Relationship Diagram (ERD) for the database schema is as follows:
 
    ```
 
-## API Endpoints
+**Daftar API Endpoints Backend**
+--------------------------------
 
-- **User Authentication**
+Berikut adalah daftar endpoint API yang tersedia pada backend aplikasi, beserta deskripsi dan format data yang diproses:
 
-  - `POST /register`: Register a new user
+### **Autentikasi**
 
-  - `POST /login`: Authenticate and get JWT token
+1.  **Register User**
 
-- **Products**
+    -   **URL:** `/register`
+    -   **Method:** `POST`
+    -   **Body:**
 
-  - `GET /products`: List all products
+        json
 
-  - `POST /products`: Create a new product
+        Copy code
 
-- **Cart**
+        `{
+          "username": "string",
+          "password": "string"
+        }`
 
-  - `GET /cart`: Get cart items
+    -   **Response:**
 
-  - `POST /cart`: Add item to cart
+        json
 
-  - `DELETE /cart/:id`: Remove item from cart
+        Copy code
 
-## Testing
+        `{
+          "message": "User registered successfully"
+        }`
+
+2.  **Login User**
+
+    -   **URL:** `/login`
+    -   **Method:** `POST`
+    -   **Body:**
+
+        json
+
+        Copy code
+
+        `{
+          "username": "string",
+          "password": "string"
+        }`
+
+    -   **Response:**
+
+        json
+
+        Copy code
+
+        `{
+          "token": "jwt_token"
+        }`
+
+### **Produk**
+
+1.  **Get Products**
+
+    -   **URL:** `/products`
+    -   **Method:** `GET`
+    -   **Response:**
+
+        json
+
+        Copy code
+
+        `[
+          {
+            "id": "integer",
+            "name": "string",
+            "description": "string",
+            "price": "decimal",
+            "stock": "integer"
+          }
+        ]`
+
+2.  **Create Product**
+
+    -   **URL:** `/products`
+    -   **Method:** `POST`
+    -   **Body:**
+
+        json
+
+        Copy code
+
+        `{
+          "name": "string",
+          "description": "string",
+          "price": "decimal",
+          "stock": "integer"
+        }`
+
+    -   **Response:**
+
+        json
+
+        Copy code
+
+        `{
+          "message": "Product created successfully"
+        }`
+
+### **Keranjang**
+
+1.  **Get Cart Items**
+
+    -   **URL:** `/cart`
+    -   **Method:** `GET`
+    -   **Response:**
+
+        `[
+          {
+            "id": "integer",
+            "name": "string",
+            "quantity": "integer",
+            "price": "decimal"
+          }
+        ]`
+
+2.  **Add To Cart**
+
+    -   **URL:** `/cart`
+    -   **Method:** `POST`
+    -   **Body:**
+
+        `{
+          "product_id": "integer",
+          "quantity": "integer"
+        }`
+
+    -   **Response:**
+
+        `{
+          "message": "Item added to cart"
+        }`
+
+3.  **Remove From Cart**
+
+    -   **URL:** `/cart/:id`
+    -   **Method:** `DELETE`
+    -   **Response:**
+
+        `{
+          "message": "Item removed from cart"
+        }`
+
+### **Flow Interaksi**
+
+1.  **Registrasi dan Login:**
+
+    -   Pengguna mengisi formulir registrasi atau login di frontend.
+    -   Data dikirim ke backend melalui endpoint `/register` atau `/login`.
+    -   Backend memproses data dan mengembalikan token JWT (untuk login) atau pesan sukses (untuk registrasi).
+2.  **Melihat dan Mengelola Produk:**
+
+    -   Pengguna dapat melihat daftar produk menggunakan endpoint `/products`.
+    -   Pengguna dapat menambahkan produk ke keranjang menggunakan endpoint `/cart` (metode `POST`).
+    -   Produk dapat dihapus dari keranjang menggunakan endpoint `/cart/:id` (metode `DELETE`).
+3.  **Menambah dan Menghapus Item dari Keranjang:**
+
+    -   Ketika pengguna menambahkan item ke keranjang, frontend mengirimkan permintaan `POST` ke endpoint `/cart`.
+    -   Ketika pengguna menghapus item dari keranjang, frontend mengirimkan permintaan `DELETE` ke endpoint `/cart/:id`.
+4.  **Menampilkan Keranjang:**
+
+    -   Untuk menampilkan item dalam keranjang, frontend mengirimkan permintaan `GET` ke endpoint `/cart`.
 
 ### Backend
 

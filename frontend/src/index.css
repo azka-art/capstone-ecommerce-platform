@@ -1,0 +1,11 @@
+/* src/index.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  #root {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+  
